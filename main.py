@@ -12,14 +12,6 @@ import yaml
 
 class Robot:
     def __init__(self, config_path):
-        """
-            初始化邮件信息
-            FROM_MAIL：用于发送邮件的邮箱
-            SMTP_SERVER：FROM_MAIL 的 SMTP服务器
-            SSL_PORT ： SMTP端口
-            USER_PWD： SMTP授权码
-            mail_list: 需要接收提醒的邮箱
-        """
         self.has_gpu = self.check_gpus()
         if not self.has_gpu:
             raise Exception('GPU is not available')
