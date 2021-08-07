@@ -1,0 +1,31 @@
+FROM_MAIL: 'xxxxxxxxx@qq.com' # 用来发送邮件的账户
+SMTP_SERVER: 'smtp.qq.com' # 不同的邮件服务商可能有所不同
+SSL_PORT: '465' # 不同的邮件服务商可能有所不同
+USER_PWD: "xxxxxxxxx" # 此处若为QQ邮箱, 需要开通发送码
+
+# 需要远程监视的机器ip和端口
+SERVER_IP: 127.0.0.1
+SERVER_PORT: 22
+SERVER_USERNAME: root
+SERVER_PASSWD: 1234
+
+MUST: 4 # 满足显卡空闲数最小块数
+MEM_RATE: 0.5 # 显存空闲率阈值，大于该阈值的GPU才会提醒
+
+MAIL_LIST: # 接受邮件的列表
+    - 'aaaaaa@foxmail.com'
+    - 'bbbbbb@qq.com'
+SKIP_TIME: # 不发邮件的时间 24小时制
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 23
+    - 24
+TRIGGER_MODE: 'ET' # 水平触发：LT 边缘触发:ET
+LT_MAIL_CD: 3600 # 水平触发的情况下，发邮件的冷却时间 单位秒
+ET_MAIL_CD: 300 # 边缘触发的情况下，发邮件的冷却时间 单位秒
+QUERY_CD: 1200 # 扫描显卡状态的CD 半小时为 30*60=1800
+QUERY_FUNC: "memory"
