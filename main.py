@@ -235,7 +235,7 @@ class Robot:
         if self.trigger_mode == 'LT':
             self.lever_trigger(self.query_func, self.lt_mail_cd, self.query_cd)
         else:
-            self.edge_trigger(self.query_func, self.et_mail_cd, self.query_cd)
+            self.edge_trigger(self.query_func)
 
 
 if __name__ == "__main__":

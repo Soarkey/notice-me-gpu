@@ -4,10 +4,10 @@ SSL_PORT: '465' # 不同的邮件服务商可能有所不同
 USER_PWD: "xxxxxxxxx" # 此处若为QQ邮箱, 需要开通发送码
 
 # 需要远程监视的机器ip和端口
-SERVER_IP: 127.0.0.1
+SERVER_IP: '127.0.0.1'
 SERVER_PORT: 22
-SERVER_USERNAME: root
-SERVER_PASSWD: 1234
+SERVER_USERNAME: 'root'
+SERVER_PASSWD: '1234'
 
 MUST: 4 # 满足显卡空闲数最小块数
 MEM_RATE: 0.5 # 显存空闲率阈值，大于该阈值的GPU才会提醒
