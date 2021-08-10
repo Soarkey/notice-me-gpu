@@ -24,6 +24,7 @@ class Robot:
         self.reload_config(self.config_path)
 
     def reload_config(self, config_path):
+        print(f"加载配置文件 from {config_path}")
         """
         加载配置文件
         Args:
@@ -103,6 +104,7 @@ class Robot:
         # 执行命令并获取返回
         stdin, stdout, stderr = ssh.exec_command(cmd)
         results = str(stdout.read(), encoding="utf-8").split("\n")[:-1]
+        ssh.close()
 
         return [self.parse(line, qargs) for line in results]
 
@@ -174,7 +176,6 @@ class Robot:
                 print(f"无可用显卡: {info}")
             print(f"进入休眠, 休眠{query_cd}s")
             time.sleep(query_cd)
-            print(f"重载配置文件 {self.config_path}")
             self.reload_config(self.config_path)
 
     def edge_trigger(self, query_func):
@@ -211,7 +212,6 @@ class Robot:
                 print(f"无可用显卡: {info}")
             print(f"进入休眠, 休眠{query_cd}s")
             time.sleep(query_cd)
-            print(f"重载配置文件 {self.config_path}")
             self.reload_config(self.config_path)
 
     def notice(self, gpus_list, info):
@@ -240,5 +240,6 @@ class Robot:
 
 if __name__ == "__main__":
     config_path = "config.yml"
+    print("程序启动")
     robot = Robot(config_path)
     robot.run()
